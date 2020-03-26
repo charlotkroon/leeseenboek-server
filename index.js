@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const userRouter = require("./user/router");
 const loginRouter = require("./auth/router");
 const bookRouter = require("./book/router");
+const reviewRouter = require("./review/router");
 
 const app = express();
 
@@ -17,7 +18,10 @@ app.use(corsMiddleware, parserMiddleware);
 app.use(userRouter);
 app.use(loginRouter);
 app.use(bookRouter);
+app.use(reviewRouter);
 
 app.listen(port, () =>
   console.log(`LEES EEN BOEK is listening to port ${port}`)
 );
+
+//postman
