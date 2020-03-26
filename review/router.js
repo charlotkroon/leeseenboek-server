@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const Review = require("./model");
 const auth = require("../auth/middleware");
-const B
 
 const router = new Router();
 
@@ -11,12 +10,14 @@ router.get("/books/:bookId/reviews", async (req, res, next) => {
   res.send(allReviews);
 });
 
-router.post("/books/:bookId/review", auth, async (req, res, next) => {
+router.post("/books/:bookId/reviews", auth, async (req, res, next) => {
   console.log("reqqq?", req.user);
   const { bookId } = req.params;
   const review = {
     stars: req.body.stars,
-    description: req.body.description
+    description: req.body.description,
+    userId: req.user.id,
+    bookId
   };
   const newReview = await Review.create(review);
   res.send(newReview);
