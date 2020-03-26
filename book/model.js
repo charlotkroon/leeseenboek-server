@@ -1,24 +1,25 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
+const User = require("../user/model");
 
 const Book = db.define(
   "book",
   {
     title: {
-      type: Sequelize.TEXT,
+      type: Sequelize.STRING,
       allowNull: false
     },
     author: {
-      type: Sequelize.TEXT,
+      type: Sequelize.STRING,
       allowNull: false
     },
     logo: {
       type: Sequelize.TEXT,
-      allowNull: false
+      allowNull: true
     },
     yearOfPublication: {
       type: Sequelize.DATE,
-      allowNull: false
+      allowNull: true
     },
     publisher: {
       type: Sequelize.STRING,
@@ -30,6 +31,9 @@ const Book = db.define(
     tableName: "books"
   }
 );
+
+Book.belongsTo(User);
+User.hasMany(Book);
 
 module.exports = Book;
 //user hasmany book

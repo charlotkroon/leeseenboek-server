@@ -1,7 +1,8 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
-const Book = require("../book/model");
-const ReadingListItem = require("../readinglistitem/model");
+// const Book = require("../book/model");
+// const ReadingListItem = require("../readinglistitem/model");
+// const Review = require("../review/model");
 
 const User = db.define(
   "user",
@@ -25,7 +26,9 @@ const User = db.define(
   }
 );
 
-User.belongsToMany(Book, { through: ReadingListItem });
-Book.belongsToMany(User, { through: ReadingListItem });
+// User.belongsToMany(Book, { through: ReadingListItem });
+// Book.belongsToMany(User, { through: ReadingListItem });
+// Review.belongsToMany(User, { through: ReadingListItem });
+// User.belongsToMany(User, { through: ReadingListItem });
 
 module.exports = User;
