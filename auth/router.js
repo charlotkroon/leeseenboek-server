@@ -17,7 +17,7 @@ function login(req, res, next) {
     });
   } else {
     User.findOne({
-      where: { email: req.body.username }
+      where: { username: req.body.username }
     })
       .then(entity => {
         if (!entity) {
