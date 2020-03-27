@@ -8,10 +8,10 @@ const router = new Router();
 
 function login(req, res, next) {
   const username = req.body.username;
-  const email = req.body.email;
   const password = req.body.password;
 
-  if (!username || !email || !password) {
+  if (!username || !password) {
+    console.log("wat is mijn usernameemailpassword?", req.body);
     res.status(400).send({
       message: "Please supply a valid user email and password."
     });
@@ -26,7 +26,9 @@ function login(req, res, next) {
           });
         } else if (bcrypt.compareSync(req.body.password, entity.password)) {
           res.send({
-            jwt: toJWT({ userId: entity.id })
+            jwt: toJWT({ userId: entity.id }),
+            username: entity.username,
+            userId: entity.id
           });
         } else {
           res.status(400).send({
