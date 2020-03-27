@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const User = require("./model");
 const router = express.Router();
 
+//ADDS ONE NEW USER
 async function addUser(req, res, next) {
   try {
     const username = req.body.username;
@@ -15,8 +16,7 @@ async function addUser(req, res, next) {
   }
 }
 
-router.post("/users", addUser);
-
+//GETS ALL USERS
 async function getUsers(req, rest, next) {
   try {
     const fetchUser = await User.findAll();
@@ -26,6 +26,7 @@ async function getUsers(req, rest, next) {
   }
 }
 
+router.post("/users", addUser);
 router.get("/users", getUsers);
 
 module.exports = router;

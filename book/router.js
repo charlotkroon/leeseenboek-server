@@ -31,6 +31,7 @@ router.post("/books", auth, async (req, res, next) => {
 
 module.exports = router;
 
+//NOTES FROM SESSION WITH DAVID
 //1. Only use the API on the front end
 //- Search bar --> inside you call the goodreads API & display results
 //- When clicking on --> I am reading this book --> you send a post req to Express API.

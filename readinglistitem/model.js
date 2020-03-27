@@ -1,3 +1,4 @@
+//THIS IS A JOINED TABLE AND CONNECTS THE BOOK AND USER MODEL
 const Sequelize = require("sequelize");
 const db = require("../db");
 const User = require("../user/model");
@@ -16,5 +17,3 @@ ReadingListItem.belongsTo(User);
 ReadingListItem.belongsTo(Book);
 User.hasMany(ReadingListItem);
 Book.hasMany(ReadingListItem);
-
-//THIS IS A JOINED TABLE
