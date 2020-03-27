@@ -15,9 +15,10 @@ async function addUser(req, res, next) {
     next(error);
   }
 }
+router.post("/users", addUser);
 
 //GETS ALL USERS
-async function getUsers(req, rest, next) {
+async function getUsers(req, res, next) {
   try {
     const fetchUser = await User.findAll();
     res.json(fetchUser);
@@ -26,7 +27,6 @@ async function getUsers(req, rest, next) {
   }
 }
 
-router.post("/users", addUser);
 router.get("/users", getUsers);
 
 module.exports = router;
